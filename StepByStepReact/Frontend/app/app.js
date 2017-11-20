@@ -16,4 +16,7 @@ $('#fillthiswithjquery').html('Filled by Jquery!!');
 let myES6Object = new ES6Lib();
 $('#fillthiswithes6lib').html(myES6Object.getData());
 
-module.hot.accept();
+// Allow Hot Module Replacement
+if (module.hot) {
+    module.hot.accept(); 
+}
