@@ -13124,11 +13124,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\SourceExample\\NetCoreSln\\StepByStepReact\\StepByStepReact.csproj",
+      "projectUniqueName": "D:\\SourceExample\\Git\\DotnetCoreSln\\StepByStepReact\\StepByStepReact.csproj",
       "projectName": "StepByStepReact",
-      "projectPath": "D:\\SourceExample\\NetCoreSln\\StepByStepReact\\StepByStepReact.csproj",
+      "projectPath": "D:\\SourceExample\\Git\\DotnetCoreSln\\StepByStepReact\\StepByStepReact.csproj",
       "packagesPath": "C:\\Users\\NghiepVo-VNDC\\.nuget\\packages\\",
-      "outputPath": "D:\\SourceExample\\NetCoreSln\\StepByStepReact\\obj\\",
+      "outputPath": "D:\\SourceExample\\Git\\DotnetCoreSln\\StepByStepReact\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
