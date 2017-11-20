@@ -20,23 +20,24 @@ module.exports = {
         }),
        new webpack.optimize.UglifyJsPlugin()        
     ],
-    module: {
-                rules: [
-                    {
-                        test: /\.css$/, 
-                        use: extractCSS.extract(['css-loader?minimize']) // build on file allstyles.css
-                        //[{ loader: "style-loader" },{ loader: "css-loader" }]} build on file bulder.js
-                    },{ 
-                        test: /\.js?$/, 
-                        use: 
-                        { 
-                            loader: 'babel-loader', 
-                            options: 
-                            { 
-                                presets:['@babel/preset-react', '@babel/preset-env', '@babel/preset-stage-3']
-                            }
-                        }
+    module:
+    {
+        rules: [
+            {
+                test: /\.css$/, 
+                use: extractCSS.extract(['css-loader?minimize']) // build on file allstyles.css
+                //[{ loader: "style-loader" },{ loader: "css-loader" }]} build on file bulder.js
+            },{ 
+                test: /\.js?$/, 
+                use: 
+                { 
+                    loader: 'babel-loader', 
+                    options: 
+                    { 
+                        presets:['@babel/preset-react', '@babel/preset-env', '@babel/preset-stage-3']
                     }
-               ]
+                }
             }
+        ]   
+    }
 };
