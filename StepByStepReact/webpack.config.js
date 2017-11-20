@@ -18,8 +18,7 @@ module.exports = {
     'window.jQuery': 'jquery',
              Popper: ['popper.js', 'default']                    
         }),
-       new webpack.optimize.UglifyJsPlugin()
-        
+       new webpack.optimize.UglifyJsPlugin()        
     ],
     module: {
                 rules: [
