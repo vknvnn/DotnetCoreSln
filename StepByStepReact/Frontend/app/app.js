@@ -1,17 +1,32 @@
 ﻿//$ = require('jquery');
-import { getText } from './lib';
+//import { getText } from './lib';
+require('./lib');
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/site.css';
+
+import 'fullcalendar';
+import 'fullcalendar/dist/fullcalendar.css';
+import 'fullcalendar-scheduler';
+
 import ES6Lib from './es6codelib';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-document.getElementById("fillthis").innerHTML = getText;
+
+//function getText() {
+//    return "Data from getText function in dep.js";
+//}
+//console.log(getText);
+//document.getElementById("fillthis").innerHTML = lib.getText();
 $('#fillthiswithjquery').html('Filled by Jquery!!');
 let myES6Object = new ES6Lib();
 $('#fillthiswithes6lib').html(myES6Object.getData());
 
+$('#calendar').fullCalendar({
+    // put your options and callbacks here
+    schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source'
+})
 
 //Lazy loading
 function component() {

@@ -21,6 +21,7 @@ module.exports = (env) => {
                 $: 'jquery',
                 jQuery: 'jquery',
                 'window.jQuery': 'jquery',
+                moment: 'jquery',
                 es6Promise: 'es6-promise',
                 Fetch: 'isomorphic-fetch',
                 Popper: ['popper.js', 'default']
@@ -44,7 +45,7 @@ module.exports = (env) => {
                         loader: 'babel-loader',
                         options:
                         {
-                            presets: ['react', 'es2015', 'stage-0'],
+                            presets: ['react', 'es2015', 'env', 'stage-0'],
                             plugins: ['transform-es3-member-expression-literals', 'transform-es3-property-literals']
                         }
                     }
