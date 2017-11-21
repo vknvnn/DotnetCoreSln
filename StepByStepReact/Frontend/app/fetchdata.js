@@ -1,6 +1,4 @@
 ﻿import React, { Component } from 'react';
-import 'es6-promise';
-import 'isomorphic-fetch';
 export default class FetchData extends Component {
     constructor() {
         super();
