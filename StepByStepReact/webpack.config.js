@@ -44,7 +44,8 @@ module.exports = (env) => {
                         loader: 'babel-loader',
                         options:
                         {
-                            presets: ['@babel/preset-react', '@babel/preset-env', '@babel/preset-stage-3']
+                            presets: ['react', 'es2015', 'stage-0'],
+                            plugins: ['transform-es3-member-expression-literals', 'transform-es3-property-literals']
                         }
                     }
                 }

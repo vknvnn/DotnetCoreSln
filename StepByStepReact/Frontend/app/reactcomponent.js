@@ -1,4 +1,5 @@
 ﻿import React, {Component} from 'react';
+import Button from 'material-ui/Button';
 
 export default class Counter extends Component {
   constructor() {
@@ -14,7 +15,8 @@ export default class Counter extends Component {
             <h1>Counter</h1>
             <p>This is a simple example of a React component.</p>    
             <p>Current count: <strong>{this.state.currentCount}</strong></p>
-            <button onClick={() => { this.incrementCounter() }}>Increment</button>
+            <Button onClick={() => { this.incrementCounter() }} raised color="primary">Increment</Button>
+
         </div>
         );
       }
