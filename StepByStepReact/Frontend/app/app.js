@@ -4,9 +4,6 @@ require('./lib');
 import 'bootstrap/dist/css/bootstrap.css';
 import '../css/site.css';
 
-import 'fullcalendar';
-import 'fullcalendar/dist/fullcalendar.css';
-import 'fullcalendar-scheduler';
 
 import ES6Lib from './es6codelib';
 import React from 'react';
@@ -23,11 +20,6 @@ $('#fillthiswithjquery').html('Filled by Jquery!!');
 let myES6Object = new ES6Lib();
 $('#fillthiswithes6lib').html(myES6Object.getData());
 
-$('#calendar').fullCalendar({
-    // put your options and callbacks here
-    schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source'
-})
-
 //Lazy loading
 function component() {
     import(/* webpackChunkName: "fetchdata" */'./fetchdata').then(module => {
@@ -42,7 +34,6 @@ function component() {
     });
     import(/* webpackChunkName: "lodash" */'lodash').then(module => {
         var _ = module;   
-        console.log(_)
         var element = document.createElement('div');
         var button = document.createElement('button');
         var br = document.createElement('br');

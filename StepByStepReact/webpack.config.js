@@ -5,7 +5,7 @@ const merge = require('webpack-merge');
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
-    const extractCSS = new ExtractTextPlugin('site.css');
+    //const extractCSS = new ExtractTextPlugin("[name].css"); // build on file [Name].css
     return {
         entry: { 'main': './Frontend/app/app.js' },
         output:
@@ -16,7 +16,7 @@ module.exports = (env) => {
             publicPath: 'dist/'
         },
         plugins: [
-            extractCSS,
+            //extractCSS, // build on file [Name].css
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 jQuery: 'jquery',
@@ -36,8 +36,9 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.css$/,
-                    use: extractCSS.extract([(isDevBuild ? 'css-loader': 'css-loader?minimize')]) // build on file allstyles.css
-                    //[{ loader: "style-loader" },{ loader: "css-loader" }]} build on file bulder.js
+                    //use: extractCSS.extract([{ loader: (isDevBuild ? 'css-loader' : 'css-loader?minimize')}]) // build on file [Name].css
+                    use: [{ loader: "style-loader" },{ loader: "css-loader" }] //build css on file bulder.js
+                    
                 }, {
                     test: /\.js?$/,
                     use:
