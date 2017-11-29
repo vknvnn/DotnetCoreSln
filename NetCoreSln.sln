@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sercurity", "Sercurity", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityUtility", "Security\SecurityUtility\SecurityUtility.csproj", "{49EBE8C9-C7C7-4A4A-BA5D-EAC173F10798}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityWebApp", "Security\SecurityWebApp\SecurityWebApp.csproj", "{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{49EBE8C9-C7C7-4A4A-BA5D-EAC173F10798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49EBE8C9-C7C7-4A4A-BA5D-EAC173F10798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49EBE8C9-C7C7-4A4A-BA5D-EAC173F10798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{BD7CE74D-697D-4321-8768-088A5502EB13} = {883200FA-0350-4095-9ECC-F95F8F5A015E}
 		{49EBE8C9-C7C7-4A4A-BA5D-EAC173F10798} = {3037A0F2-04A5-46AC-B301-6010BDFC6512}
+		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5} = {3037A0F2-04A5-46AC-B301-6010BDFC6512}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {75CFC2DB-FEDF-4A9D-90AE-C866F563543D}

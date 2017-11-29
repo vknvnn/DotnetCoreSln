@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MemoryDatabase;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StepByStepReact.Backend.Todo
 {
-    [Route("api/Todo")]
+    [Authorize(Policy = "Member")]
+    [Route("api/[controller]")]
     public class TodoController : Controller
     {
         private readonly MemoryContext _context;
@@ -33,7 +35,7 @@ namespace StepByStepReact.Backend.Todo
         {
             return _context.Todos.ToList();
         }
-
+        
         [HttpGet("{id}", Name = "GetTodo")]
         public IActionResult GetById(long id)
         {
