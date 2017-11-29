@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using StepByStepReact.Infrastructure.BackendFolders;
+using MemoryDatabase;
+using Microsoft.EntityFrameworkCore;
 
 namespace StepByStepReact
 {
@@ -17,6 +14,7 @@ namespace StepByStepReact
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MemoryContext>(opt => opt.UseInMemoryDatabase("MemoryContext"));
             services.AddMvc()
                 //Add Folder Path.
                 .AddBackendFolders();

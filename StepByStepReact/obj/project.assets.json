@@ -1690,7 +1690,7 @@
           "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore/2.0.0": {
+      "Microsoft.EntityFrameworkCore/2.0.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "2.0.0",
@@ -4503,7 +4503,7 @@
           "System.Threading": "4.3.0"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {}
+          "ref/netstandard1.3/System.Security.Cryptography.Csp.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Security.Cryptography.Csp.dll": {
@@ -5028,6 +5028,19 @@
         },
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
+        }
+      },
+      "MemoryDatabase/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.0.1"
+        },
+        "compile": {
+          "bin/placeholder/MemoryDatabase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MemoryDatabase.dll": {}
         }
       }
     }
@@ -6366,14 +6379,14 @@
         "microsoft.dotnet.platformabstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore/2.0.0": {
-      "sha512": "wmgBEpjoxd6ElVh13dlzmsl/9BtE5lky97vutJxLwFopP0IuWAyclCC2WHoXq4bYRmtzYSpmA4Q/kNugynswSA==",
+    "Microsoft.EntityFrameworkCore/2.0.1": {
+      "sha512": "RlwInZHfIUWwFgQJCpUMKrLeE8QJ64MA/GxD881oTMFa9j7iiGKCtI0xK4J1NNgRKvgVDPJbh9CIGJiu0KEdeA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/2.0.0",
+      "path": "microsoft.entityframeworkcore/2.0.1",
       "files": [
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll",
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.2.0.0.nupkg.sha512",
+        "microsoft.entityframeworkcore.2.0.1.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
@@ -13105,13 +13118,23 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "MemoryDatabase/1.0.0": {
+      "type": "project",
+      "path": "../DataProvider/MemoryDatabase/MemoryDatabase.csproj",
+      "msbuildProject": "../DataProvider/MemoryDatabase/MemoryDatabase.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "MemoryDatabase >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.0",
+      "Microsoft.EntityFrameworkCore >= 2.0.1",
       "Microsoft.NETCore.App >= 2.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.0",
+      "System.Collections >= 4.3.0",
+      "System.Security.Cryptography.Csp >= 4.3.0",
+      "System.Text.Encoding >= 4.3.0"
     ]
   },
   "packageFolders": {
@@ -13146,7 +13169,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\SourceExample\\Git\\DotnetCoreSln\\DataProvider\\MemoryDatabase\\MemoryDatabase.csproj": {
+              "projectPath": "D:\\SourceExample\\Git\\DotnetCoreSln\\DataProvider\\MemoryDatabase\\MemoryDatabase.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -13158,9 +13185,17 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "2.0.1"
+          },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "System.Security.Cryptography.Csp": {
+            "target": "Package",
+            "version": "4.3.0"
           },
           "Microsoft.NETCore.App": {
             "target": "Package",
@@ -13170,6 +13205,14 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "System.Text.Encoding": {
+            "target": "Package",
+            "version": "4.3.0"
+          },
+          "System.Collections": {
+            "target": "Package",
+            "version": "4.3.0"
           }
         },
         "imports": [
