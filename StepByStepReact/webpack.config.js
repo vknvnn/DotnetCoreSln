@@ -5,7 +5,7 @@ const merge = require('webpack-merge');
 
 module.exports = (env) => {
     const isDevBuild = !(env && env.prod);
-    //const extractCSS = new ExtractTextPlugin("[name].css"); // build on file [Name].css
+    const extractCSS = new ExtractTextPlugin("[name].css"); // build on file [Name].css
     return {
         entry: { 'main': './Frontend/app/app.js' },
         output:
@@ -16,7 +16,7 @@ module.exports = (env) => {
             publicPath: 'dist/'
         },
         plugins: [
-            //extractCSS, // build on file [Name].css
+            extractCSS, // build on file [Name].css
             new webpack.ProvidePlugin({
                 $: 'jquery',
                 jQuery: 'jquery',
@@ -36,7 +36,7 @@ module.exports = (env) => {
             rules: [
                 {
                     test: /\.css$/,
-                    //use: extractCSS.extract([{ loader: (isDevBuild ? 'css-loader' : 'css-loader?minimize')}]) // build on file [Name].css
+                    //use: extractCSS.extract([{ loader: "style-loader" },{ loader: (isDevBuild ? 'css-loader' : 'css-loader?minimize')}]) // build on file [Name].css
                     use: [{ loader: "style-loader" },{ loader: "css-loader" }] //build css on file bulder.js
                     
                 }, {
@@ -50,7 +50,8 @@ module.exports = (env) => {
                             plugins: ['transform-es3-member-expression-literals', 'transform-es3-property-literals']
                         }
                     }
-                }
+                },
+                { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
             ]
         }
     }
