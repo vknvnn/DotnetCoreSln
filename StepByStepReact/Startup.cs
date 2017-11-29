@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using SecurityWebApp.TokenHelper;
 using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace StepByStepReact
 {
@@ -30,11 +31,15 @@ namespace StepByStepReact
                             ValidateLifetime = true,
                             ValidateIssuerSigningKey = true,
 
-                            ValidIssuer = "Fiver.Security.Bearer",
-                            ValidAudience = "Fiver.Security.Bearer",
+                            ValidIssuer = "Fiver.Security.Bearer",                            
+                            ValidAudiences = new List<string>
+                            {
+                                "Fiver.Security.Bearer",
+                                "AUDIENCE2"
+                            },
                             IssuerSigningKey = JwtSecurityKey.Create("fiver-secret-key")
                         };
-
+                        
                         options.Events = new JwtBearerEvents
                         {
                             OnAuthenticationFailed = context =>
