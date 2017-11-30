@@ -26,17 +26,17 @@ namespace StepByStepReact
                     .AddJwtBearer(options => {
                         options.TokenValidationParameters = new TokenValidationParameters
                         {
-                            ValidateIssuer = true,
-                            ValidateAudience = true,
+                            ValidateIssuer = false,
+                            ValidateAudience = false,
                             ValidateLifetime = true,
                             ValidateIssuerSigningKey = true,
 
-                            ValidIssuer = "Fiver.Security.Bearer",                            
-                            ValidAudiences = new List<string>
-                            {
-                                "Fiver.Security.Bearer",
-                                "AUDIENCE2"
-                            },
+                            //ValidIssuer = "Fiver.Security.Bearer",                            
+                            //ValidAudiences = new List<string>
+                            //{
+                            //    "Fiver.Security.Bearer",
+                            //    "AUDIENCE2"
+                            //},
                             IssuerSigningKey = JwtSecurityKey.Create("fiver-secret-key")
                         };
                         

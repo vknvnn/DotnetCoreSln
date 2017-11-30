@@ -1,4 +1,4 @@
-﻿
+﻿@using System.Security.Claims
 <h1>This is the entry page.</h1>
 <div id="fillthis"></div>
 <div id="fillthiswithjquery"></div>
@@ -8,7 +8,58 @@
 <div id="basicreactcomponent"></div>
 <br /><br /><br />
 <div id="reactcomponentwithapidata"></div>
+<br />
 
+<div class="row">
+    <div class="col-sm-2">
+        <h4>Policy-based: </h4>
+    </div>
+    <div class="col-sm-2 h4">
+        @Html.ActionLink("Allow", "Allow", "Policy")
+    </div>
+    <div class="col-sm-2 h4">
+    </div>
+    <div class="col-sm-2 h4">
+        @Html.ActionLink("Deny", "Deny", "Policy")
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2">
+        <h4>Resource-based: </h4>
+    </div>
+    <div class="col-sm-2 h4">
+        @Html.ActionLink("ExampleV1 (Allow)", "ExampleV1", "Resource")
+    </div>
+    <div class="col-sm-2 h4">
+        @Html.ActionLink("ExampleV2 (Allow)", "ExampleV2", "Resource")
+    </div>
+    <div class="col-sm-2 h4">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2">
+        <h4>Permission-based: </h4>
+    </div>
+    <div class="col-sm-2 h4">
+        @Html.ActionLink("ExampleV1 (Allow)", "ExampleV1", "Permission")
+    </div>
+    <div class="col-sm-2 h4">
+        @Html.ActionLink("ExampleV2 (Allow)", "ExampleV2", "Permission")
+    </div>
+    <div class="col-sm-2 h4">
+    </div>
+</div>
+
+<br />
+<br />
+
+<h4>User's claims:</h4>
+@foreach (Claim claim in User.Claims)
+{
+    <b>@claim.Type:</b> @claim.Value    <br />
+}
 @section scripts {
     @*<script src="~/" asp-append-version="true"></script>*@
 }
