@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StepByStepReact", "StepBySt
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataProvider", "DataProvider", "{883200FA-0350-4095-9ECC-F95F8F5A015E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryDatabase", "DataProvider\MemoryDatabase\MemoryDatabase.csproj", "{BD7CE74D-697D-4321-8768-088A5502EB13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryDatabase", "DataProvider\MemoryDatabase\MemoryDatabase.csproj", "{BD7CE74D-697D-4321-8768-088A5502EB13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sercurity", "Sercurity", "{3037A0F2-04A5-46AC-B301-6010BDFC6512}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityUtility", "Security\SecurityUtility\SecurityUtility.csproj", "{49EBE8C9-C7C7-4A4A-BA5D-EAC173F10798}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityWebApp", "Security\SecurityWebApp\SecurityWebApp.csproj", "{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityWebApp", "Security\SecurityWebApp\SecurityWebApp.csproj", "{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisDemo", "RedisDemo\RedisDemo.csproj", "{C685AC62-4988-46CC-AEA7-7D20996911C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF208CCD-E17D-47F3-86A6-0A6B57E02FD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C685AC62-4988-46CC-AEA7-7D20996911C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C685AC62-4988-46CC-AEA7-7D20996911C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C685AC62-4988-46CC-AEA7-7D20996911C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C685AC62-4988-46CC-AEA7-7D20996911C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
