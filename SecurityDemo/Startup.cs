@@ -57,6 +57,7 @@ namespace SecurityDemo
             services.AddSingleton<IAuthorizationHandler, ResourceHandlerV1>();
             services.AddSingleton<IAuthorizationHandler, ResourceHandlerV2>();
             services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<ITest, Test>();
             services.AddMvc();
         }

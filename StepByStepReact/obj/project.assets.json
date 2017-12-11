@@ -5029,6 +5029,19 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "ContextBase/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.All": "2.0.3"
+        },
+        "compile": {
+          "bin/placeholder/ContextBase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ContextBase.dll": {}
+        }
+      },
       "SecurityUtility/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
@@ -5048,6 +5061,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "ContextBase": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.3",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "2.0.1"
         },
@@ -13141,6 +13155,11 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "ContextBase/1.0.0": {
+      "type": "project",
+      "path": "../DataProvider/ContextBase/ContextBase.csproj",
+      "msbuildProject": "../DataProvider/ContextBase/ContextBase.csproj"
     },
     "SecurityUtility/1.0.0": {
       "type": "project",

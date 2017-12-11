@@ -4,15 +4,19 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Linq;
+using ContextBase;
 
 namespace SecurityWebApp.TokenHelper
 {
+    
     public sealed class JwtTokenBuilder
     {
         private SecurityKey securityKey = null;
         private string subject = "";
         private string issuer = "";
         private string audience = "";
+        private string tenantId = "";
+        private string offset = "";
         private Dictionary<string, string> claims = new Dictionary<string, string>();
         private int expiryInMinutes = 5;
 
@@ -39,7 +43,17 @@ namespace SecurityWebApp.TokenHelper
             this.audience = audience;
             return this;
         }
+        public JwtTokenBuilder AddTenant(string tenantId)
+        {
+            this.tenantId = tenantId;
+            return this;
+        }
 
+        public JwtTokenBuilder AddOffset(string offset)
+        {
+            this.offset = offset;
+            return this;
+        }
         public JwtTokenBuilder AddClaim(string type, string value)
         {
             this.claims.Add(type, value);
@@ -61,11 +75,12 @@ namespace SecurityWebApp.TokenHelper
         public JwtToken Build()
         {
             EnsureArguments();
-
             var claims = new List<Claim>
             {
               new Claim(JwtRegisteredClaimNames.Sub, this.subject),
-              //new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+              new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+              new Claim(JwtCustomizeClaimNames.Tid, this.tenantId),
+              new Claim(JwtCustomizeClaimNames.Ofs, this.offset),
             }
             .Union(this.claims.Select(item => new Claim(item.Key, item.Value)));
 
@@ -96,6 +111,12 @@ namespace SecurityWebApp.TokenHelper
 
             if (string.IsNullOrEmpty(this.audience))
                 throw new ArgumentNullException("Audience");
+
+            if (string.IsNullOrEmpty(this.tenantId))
+                throw new ArgumentNullException("TenantId");
+
+            if (string.IsNullOrEmpty(this.offset))
+                throw new ArgumentNullException("Offset");
         }
 
         #endregion

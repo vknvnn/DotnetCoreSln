@@ -23,5 +23,6 @@ namespace PostgreSqlDemo.Context
             optionsBuilder.UseLoggerFactory(loggerConsoleFactory);
             #endif
         }
+        
     }
 }

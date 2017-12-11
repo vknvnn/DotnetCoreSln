@@ -9,4 +9,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\DataProvider\ContextBase\ContextBase.csproj" />
+  </ItemGroup>
+
 </Project>
