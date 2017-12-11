@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using Microsoft.AspNetCore.Http;
 
 namespace ContextBase
 {
@@ -15,7 +16,8 @@ namespace ContextBase
     public interface ITenantFactory
     {        
         Guid GetTenantId();
-        int GetClientOffset();        
+        int GetClientOffset();
+        void Load(HttpContext httpContext);
     }
     public class TenantFactory : ITenantFactory
     {
@@ -35,6 +37,22 @@ namespace ContextBase
         {
             return _tenantId;
         }
-        
+
+        public void Load(HttpContext httpContext)
+        {
+            if (httpContext != null)
+            {
+                var claim = httpContext.User.FindFirst(JwtCustomizeClaimNames.Tid);
+                if (claim != null)
+                {
+                    _tenantId = Guid.Parse(claim.Value);
+                }
+                claim = httpContext.User.FindFirst(JwtCustomizeClaimNames.Ofs);
+                if (claim != null)
+                {
+                    int.TryParse(claim.Value, out _clientTime);
+                }
+            }
+        }
     }
 }

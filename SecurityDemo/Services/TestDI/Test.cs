@@ -19,7 +19,6 @@ namespace SecurityDemo.Services.TestDI
         }
         public void Hello()
         {
-            var userId = _httpContextAccessor.HttpContext;
             Console.WriteLine("Hello");
         }
     }
