@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <PackageReference Include="ServiceStack.Redis.Core" Version="1.0.44" />
-    <PackageReference Include="NLog" Version="4.5.0-rc02" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.0.0-rtm-rc4" />
   </ItemGroup>
 

@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace StepByStepReact.Backend.Policy.Controllers
+namespace StepByStepReact.Controllers
 {
+    [Route("api/[controller]")]
     public class PolicyController : Controller
     {
         [Authorize(Policy = "age-adult-policy")]
         public IActionResult Allow()
         {
-            return View("OK");
+            return Ok("OK");
         }
 
         [Authorize(Policy = "age-elder-policy")]
         public IActionResult Deny()
         {
-            return View("OK");
+            return Ok("OK");
         }
     }
 }

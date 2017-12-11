@@ -1,10 +1,15 @@
 ﻿using PostgreSqlDemo.Bases;
-using PostgreSqlDemo.Entities.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PostgreSqlDemo.Entities.Tables
 {
+    public enum StudentType : Int16
+    {
+        Normal = 1,
+        Good = 2,
+    }
     [Table("Student", Schema = "public")]
     public class Student : EntityVersionTenant
     {

@@ -5,6 +5,12 @@ using NLog.Extensions.Logging;
 
 namespace ConsoleExample
 {
+    public enum Abc
+    {
+        Abc1 = 1,
+        Abc2 = 2,
+        Abc3 = 3,
+    }
     class Program
     {
         static void Main(string[] args)
@@ -13,7 +19,7 @@ namespace ConsoleExample
             var runner = servicesProvider.GetRequiredService<Runner>();
 
             runner.DoAction("Action1");
-
+            Console.WriteLine(Abc.Abc1.ToString());
             Console.WriteLine("Press ANY key to exit");
             Console.ReadLine();
         }

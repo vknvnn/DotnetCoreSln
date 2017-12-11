@@ -65,7 +65,7 @@ namespace SecurityWebApp.TokenHelper
             var claims = new List<Claim>
             {
               new Claim(JwtRegisteredClaimNames.Sub, this.subject),
-              new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+              //new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             }
             .Union(this.claims.Select(item => new Claim(item.Key, item.Value)));
 
@@ -73,7 +73,7 @@ namespace SecurityWebApp.TokenHelper
                               issuer: this.issuer,
                               audience: this.audience,
                               claims: claims,
-                              expires: DateTime.UtcNow.AddMinutes(expiryInMinutes),
+                              expires: DateTime.UtcNow.AddMinutes(expiryInMinutes - 5), //version 2.0 has issue deplay 5 minutes
                               signingCredentials: new SigningCredentials(
                                                         this.securityKey,
                                                         SecurityAlgorithms.HmacSha256));

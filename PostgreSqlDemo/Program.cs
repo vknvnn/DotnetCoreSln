@@ -1,5 +1,4 @@
 ﻿using PostgreSqlDemo.Context;
-using PostgreSqlDemo.Entities.Enums;
 using PostgreSqlDemo.Entities.Tables;
 using System;
 

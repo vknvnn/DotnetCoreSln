@@ -52,15 +52,17 @@ namespace RedisDemo
                     Name = "Nghiep",
                     CreatedDate = DateTimeOffset.Now
                 });
+                var student1 = client.Get<Student>("student1");
                 // redis type hash.
+               
                 client.StoreAsHash<Student>(new Student
                 {
                     Id = 4,
                     Name = "Nghiep",
                     CreatedDate = DateTimeOffset.Now
                 });
-
-                var fromHash = client.GetFromHash<Student>(1);
+                
+                var fromHash = client.GetFromHash<Student>(3);
                 if (fromHash.Id != 0)
                 {
                     //Exited in cache
@@ -70,9 +72,14 @@ namespace RedisDemo
                 var redis = client.As<Student>();
                 var studentKey = string.Format("student:id:{0}", 1);
                 var student = new Student { Id = 1, Name = "Nghiep", CreatedDate = DateTimeOffset.Now};
+               
                 redis.SetValue(studentKey, student);
+                studentKey = string.Format("student:id:{0}", 2);
+                student = new Student { Id = 2, Name = "Nghiep", CreatedDate = DateTimeOffset.Now };
+                redis.SetValue(studentKey, student);
+                var obj = redis.GetValues(new System.Collections.Generic.List<string> { "student:id:1", "student:id:2" });
 
-                var student1 = client.Get<Student>("student1");
+
 
                 using (var subscription = client.CreateSubscription())
                 {
