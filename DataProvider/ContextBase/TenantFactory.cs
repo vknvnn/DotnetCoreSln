@@ -1,9 +1,6 @@
 ﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 using Microsoft.AspNetCore.Http;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace ContextBase
 {
@@ -17,28 +14,14 @@ namespace ContextBase
     {        
         Guid GetTenantId();
         int GetClientOffset();
-        void Load(HttpContext httpContext);
+        string GetUserName();
     }
     public class TenantFactory : ITenantFactory
     {
-        public TenantFactory()
-        {
-            
-        }
         private Guid _tenantId;
         private int _clientTime;
-
-        public int GetClientOffset()
-        {
-            return _clientTime;
-        }
-        
-        public Guid GetTenantId()
-        {
-            return _tenantId;
-        }
-
-        public void Load(HttpContext httpContext)
+        private string _userName;
+        public TenantFactory(HttpContext httpContext)
         {
             if (httpContext != null)
             {
@@ -52,7 +35,27 @@ namespace ContextBase
                 {
                     int.TryParse(claim.Value, out _clientTime);
                 }
+                claim = httpContext.User.FindFirst(JwtRegisteredClaimNames.Sub);
+                if (claim != null)
+                {
+                    _userName = claim.Value;
+                }
             }
+        }
+       
+        public int GetClientOffset()
+        {
+            return _clientTime;
+        }
+        
+        public Guid GetTenantId()
+        {
+            return _tenantId;
+        }
+
+        public string GetUserName()
+        {
+            return _userName;
         }
     }
 }

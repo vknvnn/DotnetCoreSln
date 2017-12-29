@@ -4,14 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SecurityWebApp.Filters;
 
 namespace SecurityDemo.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     public class TokenInfosController : Controller
     {
         [HttpGet]
+        [AuthorizeCus("TokenInfos", OpCRUD.Read)]
         public IActionResult Get()
         {
             var dict = new Dictionary<string, string>();

@@ -19,20 +19,17 @@ namespace SecurityDemo.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]LoginInputModel inputModel)
         {            
-            if (inputModel.Username != "james" && inputModel.Password != "bond")
+            if (inputModel.Username != inputModel.Password)
                 return Unauthorized();
             var token = new JwtTokenBuilder()
                                 .AddSecurityKey(JwtSecurityKey.Create("nghiepvo-secret-key"))
-                                .AddSubject("james bond")
+                                .AddSubject(inputModel.Username)
                                 .AddIssuer("nghiepvo.com")
                                 .AddAudience("nghiepvo.com")
                                 .AddTenant(Guid.NewGuid().ToString()) // Get from db.
-                                .AddOffset(inputModel.Offset)
-                                .AddClaim("MembershipId", "111")
-                                .AddClaim("permission-foo", "111")
+                                .AddOffset(inputModel.Offset)                                
                                 .AddExpiry(3600)
-                                .Build();
-           
+                                .Build();           
             return Ok(token.Value);
         }
     }

@@ -22,6 +22,7 @@ using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using SecurityWebApp;
 using SecurityDemo.Services.TestDI;
+using SecurityWebApp.Filters;
 
 namespace SecurityDemo
 {
@@ -32,7 +33,7 @@ namespace SecurityDemo
         {
             Configuration = configuration;
         }
-        public IServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider ServiceProvider { get; private set; }
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -41,10 +42,7 @@ namespace SecurityDemo
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options => {
                         options.TokenValidationParameters = JwtHelper.GetTokenValidation("nghiepvo.com", "nghiepvo.com", "nghiepvo-secret-key");
-                        options.Events = JwtHelper.GetTokenEvent((context)=> {
-                            var test = ServiceProvider.GetService<ITest>();
-                            test.Hello();
-                        });
+                        options.Events = JwtHelper.GetTokenEvent();
                     });
             services.AddAuthorization(options =>
             {
@@ -57,6 +55,7 @@ namespace SecurityDemo
             services.AddSingleton<IAuthorizationHandler, ResourceHandlerV1>();
             services.AddSingleton<IAuthorizationHandler, ResourceHandlerV2>();
             services.AddSingleton<IAuthorizationHandler, PermissionHandler>();
+            services.AddSingleton<IAuthorizationHandler, AuthorizationHandlerCus>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<ITest, Test>();
             services.AddMvc();

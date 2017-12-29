@@ -5042,6 +5042,19 @@
           "bin/placeholder/ContextBase.dll": {}
         }
       },
+      "MemoryDatabase/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.0.1"
+        },
+        "compile": {
+          "bin/placeholder/MemoryDatabase.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MemoryDatabase.dll": {}
+        }
+      },
       "SecurityUtility/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
@@ -13161,6 +13174,11 @@
       "path": "../DataProvider/ContextBase/ContextBase.csproj",
       "msbuildProject": "../DataProvider/ContextBase/ContextBase.csproj"
     },
+    "MemoryDatabase/1.0.0": {
+      "type": "project",
+      "path": "../MemoryDatabase/MemoryDatabase.csproj",
+      "msbuildProject": "../MemoryDatabase/MemoryDatabase.csproj"
+    },
     "SecurityUtility/1.0.0": {
       "type": "project",
       "path": "../Security/SecurityUtility/SecurityUtility.csproj",
@@ -13174,6 +13192,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "MemoryDatabase >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.3",
       "Microsoft.AspNetCore.Authentication >= 2.0.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 2.0.1",
@@ -13220,6 +13239,9 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
+            "D:\\SourceExample\\Git\\DotnetCoreSln\\MemoryDatabase\\MemoryDatabase.csproj": {
+              "projectPath": "D:\\SourceExample\\Git\\DotnetCoreSln\\MemoryDatabase\\MemoryDatabase.csproj"
+            },
             "D:\\SourceExample\\Git\\DotnetCoreSln\\Security\\SecurityUtility\\SecurityUtility.csproj": {
               "projectPath": "D:\\SourceExample\\Git\\DotnetCoreSln\\Security\\SecurityUtility\\SecurityUtility.csproj"
             },

@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MemoryDatabase\MemoryDatabase.csproj" />
     <ProjectReference Include="..\Security\SecurityUtility\SecurityUtility.csproj" />
     <ProjectReference Include="..\Security\SecurityWebApp\SecurityWebApp.csproj" />
   </ItemGroup>

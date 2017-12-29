@@ -9,13 +9,15 @@ namespace SecurityWebApp.Filters
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, AuthorizationRequirementCus requirement)
         {
+            //Step 1 get claim;
             //Claim claim = context.User.FindFirst(c => c.Type == "permission-foo");
 
-            //if (requirement.DocumentId.Any() && claim != null) //TODO: your code
-            //{
-            //    context.Succeed(requirement);
-            //}
-            //Step 1 get claim;
+            if (requirement.DocumentId.Any()) //TODO: your code
+            {
+                context.Succeed(requirement);
+            }
+            
+           
             //Step 2 check cache; Check DocumentId and Operations
             //Step 3 
             return Task.CompletedTask;
